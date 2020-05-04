@@ -16,13 +16,11 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    Animated.sequence([
+    Animated.stagger(300, [
       Animated.timing(this.state.ballY, {
         toValue: 200,
         duration: 500,
       }),
-
-      Animated.delay(1000),
 
       Animated.timing(this.state.ballX, {
         toValue: 200,
