@@ -44,6 +44,9 @@ export default class App extends Component {
           duration: 500,
         }),
       ]),
+      {
+        iterations: 2,
+      },
     ).start();
   }
 
