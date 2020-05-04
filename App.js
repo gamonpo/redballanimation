@@ -16,7 +16,7 @@ export default class App extends Component {
 
   componentDidMount() {
     Animated.timing(this.state.ballY, {
-      toValue: 300,
+      toValue: 500,
       duration: 1000,
     }).start();
   }
@@ -32,7 +32,8 @@ export default class App extends Component {
               top: this.state.ballY,
               opacity: this.state.ballY.interpolate({
                 inputRange: [0, 300],
-                outputRange: [1, 0],
+                outputRange: [1, 0.2],
+                extrapolate: 'clamp',
               }),
             },
           ]}
