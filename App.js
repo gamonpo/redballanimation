@@ -9,9 +9,13 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Animated} from 'react-native';
 
+const ballY = new Animated.Value(0);
+const ballX = new Animated.divide(ballY, 2);
+
 export default class App extends Component {
   state = {
-    ballY: new Animated.Value(0),
+    ballY: ballY,
+    ballX: ballX,
   };
 
   componentDidMount() {
@@ -24,7 +28,9 @@ export default class App extends Component {
     console.disableYellowBox = true;
     return (
       <View style={styles.container}>
-        <Animated.View style={[styles.ball, {top: this.state.ballY}]} />
+        <Animated.View
+          style={[styles.ball, {top: this.state.ballY, left: this.state.ballX}]}
+        />
       </View>
     );
   }
