@@ -15,9 +15,8 @@ export default class App extends Component {
   };
 
   componentDidMount() {
-    Animated.spring(this.state.ballY, {
-      toValue: 300,
-      bounciness: 40,
+    Animated.decay(this.state.ballY, {
+      velocity: 1,
     }).start();
   }
 
